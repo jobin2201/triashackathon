@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/23e2853d-c480-454e-b756-3bedf555180b)# Pills Management
+# Pills Management
 
 ## Overview
 
