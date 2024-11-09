@@ -58,14 +58,6 @@ This system is built using **Angular** for the frontend and provides a smooth an
 - **Node.js** and **npm** (Node Package Manager) must be installed on your system.
 - **Angular CLI** is required for building and running Angular applications.
 
-### Steps:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/medications-management.git
-   cd medications-management
-
-2. Install Dependencies: After cloning the repository, install the necessary dependencies by running:
 
 ```
 npm install
