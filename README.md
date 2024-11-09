@@ -30,6 +30,10 @@ This system is built using **Angular** for the frontend and provides a smooth an
 ### 6. Navigation Bar
 - A bottom navigation bar that provides quick access to key sections, such as Home, Health Records, Calendar, Pill Reminder, and Vitals.
 
+![Frontend Dashboard](images/front.png)
+![List](images/list.png)
+![Backend Dashboard](images/backend.png)
+
 ## How to Run
 
 ### Prerequisites:
