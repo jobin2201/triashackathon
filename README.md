@@ -30,14 +30,26 @@ This system is built using **Angular** for the frontend and provides a smooth an
 ### 6. Navigation Bar
 - A bottom navigation bar that provides quick access to key sections, such as Home, Health Records, Calendar, Pill Reminder, and Vitals.
 
-### Frontend 
-![Frontend Dashboard](images/front.jpg)
-### Medecine Form
-![Medication](images/medications.png)
-### List 
-![List](images/list.jpg)
-### Backend - postgresql
-![Backend Dashboard](images/backend.png)
+### Frontend
+<p align="center">
+  <img src="images/front.jpg" alt="Frontend Dashboard">
+</p>
+
+### Medication Form
+<p align="center">
+  <img src="images/medications.png" alt="Medication">
+</p>
+
+### List
+<p align="center">
+  <img src="images/list.jpg" alt="List">
+</p>
+
+### Backend - PostgreSQL
+<p align="center">
+  <img src="images/backend.png" alt="Backend Dashboard">
+</p>
+
 
 
 ## How to Run
