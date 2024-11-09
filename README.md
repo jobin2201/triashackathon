@@ -1,4 +1,4 @@
-# Pills Management
+![image](https://github.com/user-attachments/assets/23e2853d-c480-454e-b756-3bedf555180b)# Pills Management
 
 ## Overview
 
@@ -33,6 +33,7 @@ This system is built using **Angular** for the frontend and provides a smooth an
 ![Frontend Dashboard](images/front.jpg)
 ![List](images/list.jpg)
 ![Backend Dashboard](images/backend.png)
+![Medication](images/medications.png)
 
 ## How to Run
 
