@@ -1,14 +1,15 @@
-# Backend Setup and Running Guide
+# Frontend Setup and Running Guide
 
 ## Overview
 
-This guide provides the necessary steps to set up and run the backend for the **Medications Management System**. The backend is responsible for handling data storage, authentication, and the API that communicates with the frontend. 
-
-The backend is built using **Node.js** and **Express** for handling API requests.
+This guide provides the necessary steps to set up and run the **Frontend** for the **Medications Management System**. The frontend is built using **Angular** and communicates with the backend to manage and display medication data, track schedules, and provide an interactive user interface.
 
 ## Prerequisites
 
-Before running the backend, ensure the following are installed on your system:
+Before running the frontend, ensure the following are installed on your system:
 
-- **Node.js**: The backend is built using Node.js. You can download and install it from [nodejs.org](https://nodejs.org/).
-- **npm**: The Node Package Manager (npm) comes installed with Node.js. It is used to manage dependencies.
+- **Node.js**: The frontend is built using Node.js and Angular. You can download and install Node.js from [nodejs.org](https://nodejs.org/).
+- **npm**: Node Package Manager (npm) is used to manage dependencies, and it comes bundled with Node.js.
+- **Angular CLI**: The Angular Command Line Interface (CLI) is required for building and running Angular applications. Install it globally by running:
+  ```bash
+  npm install -g @angular/cli
