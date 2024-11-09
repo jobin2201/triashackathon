@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="container">
+  <h1 class="heading">My Medications</h1>
+
+  <!-- Blue Box for Buttons -->
+  <div class="button-box">
+    <div class="button-container">
+      <!-- New "Add" Button (no functionality) -->
+      <button class="action-button">Add</button>
+      <button (click)="toggleInventoryForm()" class="action-button">Inventory</button>
+    </div>
+  </div>
+  <!-- Date Slider (Always visible) -->
+  <div class="calendar-container">
+    <div class="date-slider">
+      <button (click)="scrollLeft()" class="slider-button">&lt;</button>
+      <div class="date-cards">
+        <div
+          *ngFor="let date of displayedDates; let i = index"
+          [class.selected]="i === selectedDateIndex"
+          class="date-card"
+          (click)="selectDate(i)"
+        >
+          <p>{{ date.day }}</p>
+          <p>{{ date.date }}</p>
+        </div>
+      </div>
+      <button (click)="scrollRight()" class="slider-button">&gt;</button>
+    </div>
+  </div>
+
+  <!-- Fixed Calendar Icon and Today's Medication Button -->
+  <div class="calendar-wrapper">
+    <!-- Fixed Calendar Icon -->
+    <div class="calendar-icon">
+      <i class="fas fa-calendar"></i>
+      <h2>Monitor your med schedule</h2>
+      <h6>View your daily schedule and mark your meds when taken</h6>
+    </div>
+  
+  
+    <!-- Today's Medication Button (Centered) -->
+    <div class="today-medication-btn">
+      <button (click)="toggleMedicationForm()" class="action-button">Today's Medication</button>
+    </div>
+  </div>
+
+
+  <!-- Medication Form (only visible when showMedicationForm is true) -->
+  <div *ngIf="showMedicationForm" class="form-container">
+    <button (click)="goBack()" class="back-button">&#8592; Back</button> <!-- Back Button -->
+    <h2>Add Medication</h2>
+    <!-- Update Medication Form (match final table fields) -->
+    <form (ngSubmit)="addMedication()">
+      <label>Name</label>
+      <input [(ngModel)]="newMedication.name" name="name" required />
+  
+      <label>Form</label>
+      <select [(ngModel)]="newMedication.form" name="form">
+        <option *ngFor="let form of formOptions" [value]="form">{{ form }}</option>
+      </select>
+  
+      <label>Strength</label>
+      <input [(ngModel)]="newMedication.strength" name="strength" type="number" required />
+  
+      <label>Strength Unit</label>
+      <select [(ngModel)]="newMedication.strength_unit" name="strength_unit">
+        <option *ngFor="let unit of strengthUnitOptions" [value]="unit">{{ unit }}</option>
+      </select>
+  
+      <label>Dosage</label>
+      <input [(ngModel)]="newMedication.dosage" name="dosage" type="number" required />
+  
+      <label>Qualifier</label>
+      <select [(ngModel)]="newMedication.qualifier" name="qualifier">
+        <option *ngFor="let qualifier of qualifierOptions" [value]="qualifier">{{ qualifier }}</option>
+      </select>
+  
+      <label>Start Date</label>
+      <input [(ngModel)]="newMedication.start_date" name="start_date" type="date" required />
+  
+      <label>Duration</label>
+      <input [(ngModel)]="newMedication.duration" name="duration" type="number" required />
+  
+      <label>Duration Unit</label>
+      <select [(ngModel)]="newMedication.duration_unit" name="duration_unit">
+        <option *ngFor="let unit of durationUnitOptions" [value]="unit">{{ unit }}</option>
+      </select>
+  
+      <label>Frequency</label>
+      <input [(ngModel)]="newMedication.frequency" name="frequency" required />
+  
+      <button type="submit">Add Medication</button>
+    </form>
+  </div>
+  
+  <div *ngIf="medications.length > 0" class="medications-list">
+    <h3>Medications List</h3>
+    <div class="medications-container">
+      <div class="medication-box" *ngFor="let medication of medications">
+        <h4>{{ medication.name }} - {{ medication.form }}</h4>
+        <p>Strength: {{ medication.strength }} {{ medication.strength_unit }}</p>
+        <p>Dosage: {{ medication.dosage }}</p>
+        <p>Qualifier: {{ medication.qualifier }}</p>
+        <p>Start Date: {{ medication.start_date }}</p>
+        <p>Duration: {{ medication.duration }} {{ medication.duration_unit }}</p>
+        <p>Frequency: {{ medication.frequency }}</p>
+        <button class="delete-button" (click)="deleteMedication(medication.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Inventory Form (only visible when showInventoryForm is true) -->
+  <div *ngIf="showInventoryForm" class="form-container">
+    <h2>Inventory List</h2>
+    <form (ngSubmit)="addInventoryItem()" class="inventory-form">
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="itemName" [(ngModel)]="newInventoryItem.name" name="itemName" required />
+  
+      <label for="itemQuantity">Quantity:</label>
+      <input type="number" id="itemQuantity" [(ngModel)]="newInventoryItem.quantity" name="itemQuantity" required />
+  
+      <button type="submit" class="submit-button">Add to Inventory</button>
+    </form>
+  
+    <ul class="inventory-list">
+      <li *ngFor="let item of inventoryItems" class="list-item">
+        <p><strong>Item Name:</strong> {{ item.name }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <button (click)="deleteInventoryItem(item.id)" class="delete-button">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<nav class="bottom-nav">
+  <a href="#" class="nav-item" (click)="navigateToSection('home')">
+    <i class="fas fa-home"></i><span>Home</span>
+  </a>
+  <a href="#" class="nav-item" (click)="navigateToSection('healthrecords')">
+    <i class="fas fa-pills"></i><span>Health Records</span>
+  </a>
+  <a href="#" class="nav-item" (click)="navigateToSection('calendar')">
+    <i class="fas fa-calendar"></i><span>Appointments</span>
+  </a>
+  <a href="#" class="nav-item" (click)="navigateToSection('pillreminder')">
+    <i class="fas fa-user"></i><span>PillReminder</span>
+  </a>
+  <a href="#" class="nav-item" (click)="navigateToSection('vitals')">
+    <i class="fas fa-user"></i><span>Vitals</span>
+  </a>
+</nav>
