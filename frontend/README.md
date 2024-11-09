@@ -1,27 +1,14 @@
-# Frontend
+# Backend Setup and Running Guide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Overview
 
-## Development server
+This guide provides the necessary steps to set up and run the backend for the **Medications Management System**. The backend is responsible for handling data storage, authentication, and the API that communicates with the frontend. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The backend is built using **Node.js** and **Express** for handling API requests.
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before running the backend, ensure the following are installed on your system:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Node.js**: The backend is built using Node.js. You can download and install it from [nodejs.org](https://nodejs.org/).
+- **npm**: The Node Package Manager (npm) comes installed with Node.js. It is used to manage dependencies.
